@@ -1,5 +1,5 @@
 # CS563 Natural Language Processing Lab
-## Assignment 6
+## Assignment 1
 Parts of Speech Tagging using second order Hidden Markov Model.
 
 ## Team Details:
