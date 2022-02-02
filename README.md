@@ -4,7 +4,7 @@ Lab work for CS563 Natural Language Processing at Indian Institute of Technology
 
 ## Team Details:
 
-Team Code: `1801cs15_1801cs46
+Team Code: `1801cs15_1801cs46`
 
 Team Name: `kacha_badam`
 
