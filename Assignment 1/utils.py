@@ -68,3 +68,14 @@ def generate_transition_matrix(y):
         transition_matrix[trigram] = trigram_count[trigram] / bigram_count[(first, second)]
 
     return transition_matrix
+
+def collapse_to_4_tags(y_train, y_test):
+    tag_map = defaultdict(lambda: 'O', {
+        'JJ': 'A', 'JJR': 'A', 'JJS': 'A', 'RB': 'A', 'RBR': 'A', 'RBS': 'A', 
+        'WRB': 'A', 'VB': 'V', 'VBD': 'V', 'VBG': 'V', 'VBN': 'V', 'VBP': 'V', 
+        'VBZ': 'V', 'NN': 'N', 'NNS': 'N', 'NNP': 'N', 'NNPS': 'N'
+    })
+    y_train_new = [[tag_map[tag] for tag in tag_seq] for tag_seq in y_train]
+    y_test_new = [[tag_map[tag] for tag in tag_seq] for tag_seq in y_test]
+
+    return y_train_new, y_test_new 

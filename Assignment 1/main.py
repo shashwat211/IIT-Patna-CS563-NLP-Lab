@@ -31,19 +31,7 @@ def test_and_evaluate(x, y, transition, emission, all_tags):
             correct_predictions[actual] += predicted == actual
             tag_count[actual] += 1
 
-    evaluate_accuracy_metrics(correct_predictions, tag_count)
-
-def collapse_to_4_tags(y_train, y_test):
-    tag_map = defaultdict(lambda: 'O', {
-        'JJ': 'A', 'JJR': 'A', 'JJS': 'A', 'RB': 'A', 'RBR': 'A', 'RBS': 'A', 
-        'WRB': 'A', 'VB': 'V', 'VBD': 'V', 'VBG': 'V', 'VBN': 'V', 'VBP': 'V', 
-        'VBZ': 'V', 'NN': 'N', 'NNS': 'N', 'NNP': 'N', 'NNPS': 'N'
-    })
-    y_train_new = [[tag_map[tag] for tag in tag_seq] for tag_seq in y_train]
-    y_test_new = [[tag_map[tag] for tag in tag_seq] for tag_seq in y_test]
-
-    return y_train_new, y_test_new    
-
+    evaluate_accuracy_metrics(correct_predictions, tag_count)   
 
 def main():
     data_x, data_y = load_dataset()
