@@ -79,7 +79,8 @@ _**Time taken**: 13:52 min (1.06s/it)_
 | WP$           |   1        |
 | WRB           |   0.611111 |
   
-After this number of tags is reduced to 4 as per assignment. 
+After this number of tags is reduced to 4 as per assignment.  
+
 ---
 
 #### HMM for 4 tags
