@@ -19,13 +19,19 @@ Team Members:
 ### Creating environment with the required packages
 Use the ```requirements.txt``` file to install the required packages. The environment name here is `nlp-a1`. You may change it if you want.
 
-```conda create --name nlp-a1 --file requirements.txt```  
+```
+conda create --name nlp-a1 --file requirements.txt
+```  
 
 ### Activate the new environment
-```conda activate nlp-a1```
+```
+conda activate nlp-a1
+```
 
 ### Running the Code
-```python3 main.py```
+```
+python3 main.py
+```
 
 ### Error Analysis from Output
 ---
