@@ -1,14 +1,13 @@
-# CS563 Natural Language Processing Lab
-## Assignment 1
+# CS563 Natural Language Processing: Assignment 1
 Parts of Speech Tagging using second order Hidden Markov Model.
 
-## Team Details:
+## Team Details
 
-Team Code: `1801cs15_1801cs46`
+**Team Code**: `1801cs15_1801cs46`
 
-Team Name: `kacha_badam`
+**Team Name**: `kacha_badam`
 
-Team Members:
+### Team Members
 
 | Name              | Roll Number |
 | ----------------- | ----------- |
@@ -44,7 +43,7 @@ _**Time taken**: 13:52 min (1.06s/it)_
 
 > Class-wise Accuracies 
 
-| Class (Tag)   |   Accuracy |
+|  Class (Tag)  |  Accuracy  |
 |---------------|------------|
 | #             |   0        |
 | ''            |   0        |
@@ -98,13 +97,20 @@ _**Time taken**: 00:02 min (317.48it/s)_
 
 > Class-wise Accuracies 
 
-| Class (Tag)   |   Accuracy |
+|  Class (Tag)  |  Accuracy  |
 |---------------|------------|
 | A             |   0.789972 |
 | N             |   0.879392 |
 | O             |   0.952872 |
 | V             |   0.814131 |
 
+---
+
+#### 36-tag vs 4-tag Model
+---
+We can see that the model evaluating on only 4 tags performs better in terms of accuracy. The larger the tag set, the lower the accuracy of the tagging system since the system has to be capable of making finer distinctions. Conversely, the smaller the tag set, the higher the accuracy. Additionally, we can see that the number of training samples will decrease in case of more tags, thus giving a larger corpus for the 4-tag model to train on. Thus, it will expectedly give better results. 
+
+Mathematically, while calculating the transition and emission probabilities, the count functions C(w, u, v) (transition from w to u to v) and C(word | v) (word marked with tag v) will have higher values. Thus, the sample space for the calculation of probabilities increases. Since, the sample space is larger, this would result in better estimation of these probabilities for the respective tags. Thus, this naturally results in larger corpus for training for this model and hence, better results are expected.
 
 ______________________
 Thanking You!

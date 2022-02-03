@@ -4,23 +4,6 @@ import numpy as np
 from nltk.util import ngrams
 from collections import Counter, defaultdict
 
-# LAMBDA = 0.0000000001
-
-# class variabledefaultdict(defaultdict):
-#     def __missing__(self, key):
-#         return self.default_factory(key)
-
-
-# def laplace(observed, total, total_tags):
-#     return (observed + LAMBDA) / (total + LAMBDA * total_tags)
-
-# def default_emission_laplace(key, total_tags):
-#     word, tag = key
-#     return laplace(0, tag_count[tag], total_tags)
-
-# def default_transition_laplace(key, total_tags):
-#     first, second, third = key
-#     return laplace(0, bigram_count[(first, second)], total_tags)
 
 def remove_punctuations(data):
     result = [line.translate(str.maketrans('', '', string.punctuation)) for line in data]
