@@ -110,7 +110,7 @@ _**Time taken**: 00:02 min (317.48it/s)_
 ---
 We can see that the model evaluating on only 4 tags performs better in terms of accuracy. The larger the tag set, the lower the accuracy of the tagging system since the system has to be capable of making finer distinctions. Conversely, the smaller the tag set, the higher the accuracy. Additionally, we can see that the number of training samples will decrease in case of more tags, thus giving a larger corpus for the 4-tag model to train on. Thus, it will expectedly give better results. 
 
-Mathematically, while calculating the transition and emission probabilities, the count functions C(w, u, v) (transition from w to u to v) and C(word | v) (word marked with tag v) will have higher values. Thus, the sample space for the calculation of probabilities increases. Since, the sample space is larger, this would result in better estimation of these probabilities for the respective tags. Thus, this naturally results in larger corpus for training for this model and hence, better results are expected.
+Mathematically, while calculating the transition and emission probabilities, the count functions C(w, u, v) (transition from w to u to v), C(u, v) (transition from u to v), C(word | v) (word marked with tag v) and C(v) (tag v) will have higher values. Thus, the sample space for the calculation of probabilities increases. Since, the sample space is larger, this would result in better estimation of these probabilities for the respective tags. Thus, this naturally results in larger corpus for training for this model and hence, better results are expected.
 
 ______________________
 Thanking You!
