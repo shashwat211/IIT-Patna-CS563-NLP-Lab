@@ -100,6 +100,7 @@ _**Time taken**: 00:07 min (514.24it/s)_
 | sportsteam  |   0.24      | 0.0923077 | 0.133333  |
 | tvshow      |   0         | 0         | 0         |
   
+---
 #### HMM for trigram model without context
 ---
 Evaluation on trigram model without context
@@ -123,7 +124,8 @@ _**Time taken**: 01:29 min (42.95it/s)_
 | product     |    0.5      | 0.0938338 | 0.158014  |
 | sportsteam  |    0.225    | 0.0923077 | 0.130909  |
 | tvshow      |    0        | 0         | 0         |
-  
+
+--- 
 ### HMM for bigram model with context
 ---
 Evaluation on bigram model with context
@@ -148,8 +150,9 @@ _**Time taken**: 00:09 min (409.44it/s)_
 | sportsteam  |    0.194444 | 0.0717949 | 0.104869  |
 | tvshow      |    0        | 0         | 0         |
   
+---
 #### HMM for trigram model with context
---------------------------------------------------------------------------------
+---
 Evaluation on trigram model with context
 _Evaluated 3850 sentences._  
 _**Time taken**: 01:32 min (41.50it/s)_
@@ -173,7 +176,6 @@ _**Time taken**: 01:32 min (41.50it/s)_
 | tvshow      |    0        | 0         | 0         |
 
 ---
-
 #### Comparison of all four models
 ---
 The trigram models perform better than the bigram ones in their respective application areas. After adding context to the emission probabilities, they again, perform better than their context-less counterparts. The overall accuracies can be compared using the table below.
