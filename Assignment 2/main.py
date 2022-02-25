@@ -24,7 +24,7 @@ def evaluate_metrics(true, pred):
 def print_metrics(test_acc, precision, recall, f1, classes):
     print(f"Accuracy of the model: {test_acc}")
     print(tabulate(zip(classes, precision, recall, f1),
-                   headers=['Class (Alphabet)', 'Precision', 'Recall', 'F1'],
+                   headers=['Class', 'Precision', 'Recall', 'F1'],
                    tablefmt='orgtbl'))
 
 def test_and_evaluate(test, true, transition, emission, all_tags, ngram=2, with_context=False):
@@ -33,7 +33,9 @@ def test_and_evaluate(test, true, transition, emission, all_tags, ngram=2, with_
     for sentence in tqdm(test, total=len(test)):
         pred.append(viterbi(sentence, transition, emission, all_tags, ngram, with_context))
     
-    predictions_file = open("predictions.txt", "w")
+    ngram_str = 'trigram' if ngram == 3 else 'bigram'
+    context_str = 'with' if with_context else 'without'
+    predictions_file = open(f"predictions_{ngram_str}_{context_str}_context.txt", "w")
     for test_sentence, pred_tag_seq in zip(test, pred):
         for word, tag in zip(test_sentence, pred_tag_seq):
             predictions_file.write(f'{word} {tag}\n')
@@ -58,7 +60,7 @@ def train_and_test(dataset, ngram=2, with_context=False):
 
     test_and_evaluate(x_test, y_test, transition_matrix, emission_matrix, all_tags, ngram=ngram, with_context=with_context)
     
-    print("  \n")
+    print(f"\nEvaluated {len(x_test)} sentences.\n")
 
 
 def main():
