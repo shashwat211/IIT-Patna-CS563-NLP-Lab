@@ -1,4 +1,4 @@
-# CS563 Natural Language Processing: Assignment 1
+# CS563 Natural Language Processing: Assignment 2
 Named Entity Recognition using Hidden Markov Model.
 
 ## Team Details
