@@ -1,0 +1,874 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>README.md</title>
+<meta http-equiv="Content-type" content="text/html;charset=UTF-8">
+
+<style>
+/* https://github.com/microsoft/vscode/blob/master/extensions/markdown-language-features/media/markdown.css */
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+body {
+	font-family: var(--vscode-markdown-font-family, -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif);
+	font-size: var(--vscode-markdown-font-size, 14px);
+	padding: 0 26px;
+	line-height: var(--vscode-markdown-line-height, 22px);
+	word-wrap: break-word;
+}
+
+#code-csp-warning {
+	position: fixed;
+	top: 0;
+	right: 0;
+	color: white;
+	margin: 16px;
+	text-align: center;
+	font-size: 12px;
+	font-family: sans-serif;
+	background-color:#444444;
+	cursor: pointer;
+	padding: 6px;
+	box-shadow: 1px 1px 1px rgba(0,0,0,.25);
+}
+
+#code-csp-warning:hover {
+	text-decoration: none;
+	background-color:#007acc;
+	box-shadow: 2px 2px 2px rgba(0,0,0,.25);
+}
+
+body.scrollBeyondLastLine {
+	margin-bottom: calc(100vh - 22px);
+}
+
+body.showEditorSelection .code-line {
+	position: relative;
+}
+
+body.showEditorSelection .code-active-line:before,
+body.showEditorSelection .code-line:hover:before {
+	content: "";
+	display: block;
+	position: absolute;
+	top: 0;
+	left: -12px;
+	height: 100%;
+}
+
+body.showEditorSelection li.code-active-line:before,
+body.showEditorSelection li.code-line:hover:before {
+	left: -30px;
+}
+
+.vscode-light.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.15);
+}
+
+.vscode-light.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.40);
+}
+
+.vscode-light.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-dark.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.4);
+}
+
+.vscode-dark.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.60);
+}
+
+.vscode-dark.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-high-contrast.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 160, 0, 0.7);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 160, 0, 1);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+img {
+	max-width: 100%;
+	max-height: 100%;
+}
+
+a {
+	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+a:focus,
+input:focus,
+select:focus,
+textarea:focus {
+	outline: 1px solid -webkit-focus-ring-color;
+	outline-offset: -1px;
+}
+
+hr {
+	border: 0;
+	height: 2px;
+	border-bottom: 2px solid;
+}
+
+h1 {
+	padding-bottom: 0.3em;
+	line-height: 1.2;
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+}
+
+h1, h2, h3 {
+	font-weight: normal;
+}
+
+table {
+	border-collapse: collapse;
+}
+
+table > thead > tr > th {
+	text-align: left;
+	border-bottom: 1px solid;
+}
+
+table > thead > tr > th,
+table > thead > tr > td,
+table > tbody > tr > th,
+table > tbody > tr > td {
+	padding: 5px 10px;
+}
+
+table > tbody > tr + tr > td {
+	border-top: 1px solid;
+}
+
+blockquote {
+	margin: 0 7px 0 5px;
+	padding: 0 16px 0 10px;
+	border-left-width: 5px;
+	border-left-style: solid;
+}
+
+code {
+	font-family: Menlo, Monaco, Consolas, "Droid Sans Mono", "Courier New", monospace, "Droid Sans Fallback";
+	font-size: 1em;
+	line-height: 1.357em;
+}
+
+body.wordWrap pre {
+	white-space: pre-wrap;
+}
+
+pre:not(.hljs),
+pre.hljs code > div {
+	padding: 16px;
+	border-radius: 3px;
+	overflow: auto;
+}
+
+pre code {
+	color: var(--vscode-editor-foreground);
+	tab-size: 4;
+}
+
+/** Theming */
+
+.vscode-light pre {
+	background-color: rgba(220, 220, 220, 0.4);
+}
+
+.vscode-dark pre {
+	background-color: rgba(10, 10, 10, 0.4);
+}
+
+.vscode-high-contrast pre {
+	background-color: rgb(0, 0, 0);
+}
+
+.vscode-high-contrast h1 {
+	border-color: rgb(0, 0, 0);
+}
+
+.vscode-light table > thead > tr > th {
+	border-color: rgba(0, 0, 0, 0.69);
+}
+
+.vscode-dark table > thead > tr > th {
+	border-color: rgba(255, 255, 255, 0.69);
+}
+
+.vscode-light h1,
+.vscode-light hr,
+.vscode-light table > tbody > tr + tr > td {
+	border-color: rgba(0, 0, 0, 0.18);
+}
+
+.vscode-dark h1,
+.vscode-dark hr,
+.vscode-dark table > tbody > tr + tr > td {
+	border-color: rgba(255, 255, 255, 0.18);
+}
+
+</style>
+
+<style>
+/* Tomorrow Theme */
+/* http://jmblog.github.com/color-themes-for-google-code-highlightjs */
+/* Original theme - https://github.com/chriskempson/tomorrow-theme */
+
+/* Tomorrow Comment */
+.hljs-comment,
+.hljs-quote {
+	color: #8e908c;
+}
+
+/* Tomorrow Red */
+.hljs-variable,
+.hljs-template-variable,
+.hljs-tag,
+.hljs-name,
+.hljs-selector-id,
+.hljs-selector-class,
+.hljs-regexp,
+.hljs-deletion {
+	color: #c82829;
+}
+
+/* Tomorrow Orange */
+.hljs-number,
+.hljs-built_in,
+.hljs-builtin-name,
+.hljs-literal,
+.hljs-type,
+.hljs-params,
+.hljs-meta,
+.hljs-link {
+	color: #f5871f;
+}
+
+/* Tomorrow Yellow */
+.hljs-attribute {
+	color: #eab700;
+}
+
+/* Tomorrow Green */
+.hljs-string,
+.hljs-symbol,
+.hljs-bullet,
+.hljs-addition {
+	color: #718c00;
+}
+
+/* Tomorrow Blue */
+.hljs-title,
+.hljs-section {
+	color: #4271ae;
+}
+
+/* Tomorrow Purple */
+.hljs-keyword,
+.hljs-selector-tag {
+	color: #8959a8;
+}
+
+.hljs {
+	display: block;
+	overflow-x: auto;
+	color: #4d4d4c;
+	padding: 0.5em;
+}
+
+.hljs-emphasis {
+	font-style: italic;
+}
+
+.hljs-strong {
+	font-weight: bold;
+}
+</style>
+
+<style>
+/*
+ * Markdown PDF CSS
+ */
+
+ body {
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif, "Meiryo";
+	padding: 0 12px;
+}
+
+pre {
+	background-color: #f8f8f8;
+	border: 1px solid #cccccc;
+	border-radius: 3px;
+	overflow-x: auto;
+	white-space: pre-wrap;
+	overflow-wrap: break-word;
+}
+
+pre:not(.hljs) {
+	padding: 23px;
+	line-height: 19px;
+}
+
+blockquote {
+	background: rgba(127, 127, 127, 0.1);
+	border-color: rgba(0, 122, 204, 0.5);
+}
+
+.emoji {
+	height: 1.4em;
+}
+
+code {
+	font-size: 14px;
+	line-height: 19px;
+}
+
+/* for inline code */
+:not(pre):not(.hljs) > code {
+	color: #C9AE75; /* Change the old color so it seems less like an error */
+	font-size: inherit;
+}
+
+/* Page Break : use <div class="page"/> to insert page break
+-------------------------------------------------------- */
+.page {
+	page-break-after: always;
+}
+
+</style>
+
+<script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
+</head>
+<body>
+  <script>
+    mermaid.initialize({
+      startOnLoad: true,
+      theme: document.body.classList.contains('vscode-dark') || document.body.classList.contains('vscode-high-contrast')
+          ? 'dark'
+          : 'default'
+    });
+  </script>
+<h1 id="cs563-natural-language-processing-mid-semester-assignment">CS563 Natural Language Processing: Mid-Semester Assignment</h1>
+<h2 id="student-details">Student Details</h2>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Roll Number</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Shashwat Mahajan</td>
+<td>1801CS46</td>
+</tr>
+</tbody>
+</table>
+<h2 id="setup-of-environment-and-running-the-code">Setup of environment and running the code</h2>
+<h3 id="creating-environment-with-the-required-packages">Creating environment with the required packages</h3>
+<p>Use the <code>requirements.txt</code> file to install the required packages. The environment name here is <code>nlp-midsem</code>. You may change it if you want. Use <code>conda-forge</code> channel if packages aren't found.</p>
+<pre class="hljs"><code><div>conda create --name nlp-midsem --file requirements.txt
+</div></code></pre>
+<h3 id="activate-the-new-environment">Activate the new environment</h3>
+<pre class="hljs"><code><div>conda activate nlp-midsem
+</div></code></pre>
+<h3 id="running-the-code">Running the Code</h3>
+<p>The two files <code>Q1.ipynb</code> and <code>Q2.ipynb</code> are both Jupyter Notebooks. Both can be viewed on any editor(eg. VS Code) with the environment (<code>nlp-midsem</code>) activated. Alternatively they can also be viewed/run using the following commands:</p>
+<pre class="hljs"><code><div>jupyter-notebook Q1.ipynb
+</div></code></pre>
+<pre class="hljs"><code><div>jupyter-notebook Q2a.ipynb
+</div></code></pre>
+<pre class="hljs"><code><div>jupyter-notebook Q2b.ipynb
+</div></code></pre>
+<hr>
+<h2 id="question-1-automated-spelling-corrector">Question 1: Automated Spelling Corrector</h2>
+<hr>
+<h3 id="first-order-hmm-without-contextual-emission">First Order HMM without Contextual Emission</h3>
+<hr>
+<p><em>Number of train samples</em> : 9279
+<em>Number of test samples</em> : 1879</p>
+<p><strong>Accuracy of the model: 0.9195359281437125</strong></p>
+<blockquote>
+<p>Class-wise accuracies</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>Class (Alphabet)</th>
+<th>Precision</th>
+<th>Recall</th>
+<th>F1</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>a</td>
+<td>0.931884</td>
+<td>0.946981</td>
+<td>0.939372</td>
+</tr>
+<tr>
+<td>b</td>
+<td>0.775862</td>
+<td>0.75</td>
+<td>0.762712</td>
+</tr>
+<tr>
+<td>c</td>
+<td>0.943231</td>
+<td>0.927039</td>
+<td>0.935065</td>
+</tr>
+<tr>
+<td>d</td>
+<td>0.92233</td>
+<td>0.904762</td>
+<td>0.913462</td>
+</tr>
+<tr>
+<td>e</td>
+<td>0.922249</td>
+<td>0.932285</td>
+<td>0.92724</td>
+</tr>
+<tr>
+<td>f</td>
+<td>0.836478</td>
+<td>0.869281</td>
+<td>0.852564</td>
+</tr>
+<tr>
+<td>g</td>
+<td>0.921569</td>
+<td>0.859756</td>
+<td>0.88959</td>
+</tr>
+<tr>
+<td>h</td>
+<td>0.923304</td>
+<td>0.928783</td>
+<td>0.926036</td>
+</tr>
+<tr>
+<td>i</td>
+<td>0.918728</td>
+<td>0.943739</td>
+<td>0.931065</td>
+</tr>
+<tr>
+<td>j</td>
+<td>0.888889</td>
+<td>1</td>
+<td>0.941176</td>
+</tr>
+<tr>
+<td>k</td>
+<td>0.893258</td>
+<td>0.913793</td>
+<td>0.903409</td>
+</tr>
+<tr>
+<td>l</td>
+<td>0.912903</td>
+<td>0.918831</td>
+<td>0.915858</td>
+</tr>
+<tr>
+<td>m</td>
+<td>0.931174</td>
+<td>0.888031</td>
+<td>0.909091</td>
+</tr>
+<tr>
+<td>n</td>
+<td>0.908705</td>
+<td>0.928416</td>
+<td>0.918455</td>
+</tr>
+<tr>
+<td>o</td>
+<td>0.954151</td>
+<td>0.945946</td>
+<td>0.950031</td>
+</tr>
+<tr>
+<td>p</td>
+<td>0.871345</td>
+<td>0.851429</td>
+<td>0.861272</td>
+</tr>
+<tr>
+<td>q</td>
+<td>0.666667</td>
+<td>0.666667</td>
+<td>0.666667</td>
+</tr>
+<tr>
+<td>r</td>
+<td>0.927602</td>
+<td>0.919283</td>
+<td>0.923423</td>
+</tr>
+<tr>
+<td>s</td>
+<td>0.915929</td>
+<td>0.9</td>
+<td>0.907895</td>
+</tr>
+<tr>
+<td>t</td>
+<td>0.93588</td>
+<td>0.937158</td>
+<td>0.936519</td>
+</tr>
+<tr>
+<td>u</td>
+<td>0.90429</td>
+<td>0.916388</td>
+<td>0.910299</td>
+</tr>
+<tr>
+<td>v</td>
+<td>0.878788</td>
+<td>0.892308</td>
+<td>0.885496</td>
+</tr>
+<tr>
+<td>w</td>
+<td>0.921875</td>
+<td>0.859223</td>
+<td>0.889447</td>
+</tr>
+<tr>
+<td>x</td>
+<td>0.714286</td>
+<td>0.625</td>
+<td>0.666667</td>
+</tr>
+<tr>
+<td>y</td>
+<td>0.889313</td>
+<td>0.910156</td>
+<td>0.899614</td>
+</tr>
+<tr>
+<td>z</td>
+<td>0.764706</td>
+<td>0.866667</td>
+<td>0.8125</td>
+</tr>
+</tbody>
+</table>
+<p>All predictions are output into the <code>predictions.txt</code> file.</p>
+<hr>
+<h3 id="working-on-the-given-case-of-spelling-errors">Working on the given case of spelling errors</h3>
+<p>The following sentence (P1) was given with the highlighted wrong words. The corrected words are shown in the sentence P2.</p>
+<p><em>P1:</em> star wars is <strong>ploying</strong> at <strong>thi</strong> regal lloyd <strong>center</strong> and imax multnomah st portland <strong>ang</strong> also at <strong>tho</strong> <strong>centupy</strong> eastport plaza <strong>wuuld</strong> any of <strong>thoss</strong> times <strong>wurk</strong> for <strong>yoz</strong></p>
+<p><em>P2:</em> star wars is <strong>playing</strong> at <strong>the</strong> regal lloyd <strong>centre</strong> and imax multnomah st portland
+<strong>and</strong> also at <strong>the</strong> <strong>century</strong> eastport plaza <strong>would</strong> any of <strong>those</strong> times <strong>work</strong> for <strong>you</strong></p>
+<h2 id="we-create-a-string-of-these-wrong-words-and-evaluate-these-words-according-to-our-viterbi-algorithm">We create a string of these wrong words and evaluate these words according to our viterbi algorithm.</h2>
+<pre class="hljs"><code><div>Percentage corrected spellings: 30.0%
+</div></code></pre>
+<hr>
+<h3 id="ease-and-difficulty-of-correction">Ease and difficulty of correction</h3>
+<hr>
+<p>It can be observed in the corrected outputs below that the model performs well in case of long words(century, would) and also for very repetitive words (ie, you).</p>
+<pre class="hljs"><code><div>Corrected Spelling: century
+Corrected Spelling: would
+Corrected Spelling: you
+</div></code></pre>
+<p>On the contrary the model is not able to perform very well on words with ambiguous spelling patterns / uncommon occurances like 'centre'. As an example the trail of <code>['t', 'r', 'e']</code> seen in the word 'centre' is very rarely observed in the train set. Thus the model does not learn to predict such a spelling and performs poorly in these cases.</p>
+<hr>
+<h2 id="question-2a-pos-tagger-modifications-and-evaluation">Question 2a: POS Tagger (Modifications and Evaluation)</h2>
+<hr>
+<p><em>Evaluated 783 sentences.</em><br>
+<em><strong>Time taken</strong>: 19:58 min (1.53s/it)</em></p>
+<p><strong>Accuracy of the model: 0.8687766892740517</strong></p>
+<blockquote>
+<p>Class-wise accuracies</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>Class (Alphabet)</th>
+<th>Precision</th>
+<th>Recall</th>
+<th>F1</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>''</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr>
+<td>-LRB-</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr>
+<td>-RRB-</td>
+<td>0.652174</td>
+<td>0.535714</td>
+<td>0.588235</td>
+</tr>
+<tr>
+<td>:</td>
+<td>0.619048</td>
+<td>0.393939</td>
+<td>0.481481</td>
+</tr>
+<tr>
+<td>CC</td>
+<td>0.0357143</td>
+<td>0.0192308</td>
+<td>0.025</td>
+</tr>
+<tr>
+<td>CD</td>
+<td>0.794805</td>
+<td>0.72</td>
+<td>0.755556</td>
+</tr>
+<tr>
+<td>DT</td>
+<td>0.813031</td>
+<td>0.790634</td>
+<td>0.801676</td>
+</tr>
+<tr>
+<td>EX</td>
+<td>0.789119</td>
+<td>0.881027</td>
+<td>0.832544</td>
+</tr>
+<tr>
+<td>FW</td>
+<td>0.909091</td>
+<td>0.526316</td>
+<td>0.666667</td>
+</tr>
+<tr>
+<td>IN</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr>
+<td>JJ</td>
+<td>0.774687</td>
+<td>0.870313</td>
+<td>0.81972</td>
+</tr>
+<tr>
+<td>JJR</td>
+<td>0.677768</td>
+<td>0.683303</td>
+<td>0.680524</td>
+</tr>
+<tr>
+<td>JJS</td>
+<td>0.661538</td>
+<td>0.544304</td>
+<td>0.597222</td>
+</tr>
+<tr>
+<td>LS</td>
+<td>0.814815</td>
+<td>0.578947</td>
+<td>0.676923</td>
+</tr>
+<tr>
+<td>MD</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr>
+<td>NN</td>
+<td>0.855615</td>
+<td>0.91954</td>
+<td>0.886427</td>
+</tr>
+<tr>
+<td>NNP</td>
+<td>0.759666</td>
+<td>0.794923</td>
+<td>0.776895</td>
+</tr>
+<tr>
+<td>NNPS</td>
+<td>0.825058</td>
+<td>0.814709</td>
+<td>0.819851</td>
+</tr>
+<tr>
+<td>NNS</td>
+<td>0.666667</td>
+<td>0.444444</td>
+<td>0.533333</td>
+</tr>
+<tr>
+<td>PDT</td>
+<td>0.78481</td>
+<td>0.710311</td>
+<td>0.745704</td>
+</tr>
+<tr>
+<td>PRP</td>
+<td>0.333333</td>
+<td>0.4</td>
+<td>0.363636</td>
+</tr>
+<tr>
+<td>PRP$</td>
+<td>0.765333</td>
+<td>0.864458</td>
+<td>0.811881</td>
+</tr>
+<tr>
+<td>RB</td>
+<td>0.734848</td>
+<td>0.713235</td>
+<td>0.723881</td>
+</tr>
+<tr>
+<td>RBR</td>
+<td>0.713974</td>
+<td>0.626437</td>
+<td>0.667347</td>
+</tr>
+<tr>
+<td>RBS</td>
+<td>0.425</td>
+<td>0.62963</td>
+<td>0.507463</td>
+</tr>
+<tr>
+<td>RP</td>
+<td>1</td>
+<td>0.285714</td>
+<td>0.444444</td>
+</tr>
+<tr>
+<td>TO</td>
+<td>0.533333</td>
+<td>0.615385</td>
+<td>0.571429</td>
+</tr>
+<tr>
+<td>UH</td>
+<td>0.847458</td>
+<td>0.797267</td>
+<td>0.821596</td>
+</tr>
+<tr>
+<td>VB</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr>
+<td>VBD</td>
+<td>0.798354</td>
+<td>0.762279</td>
+<td>0.779899</td>
+</tr>
+<tr>
+<td>VBG</td>
+<td>0.754685</td>
+<td>0.738333</td>
+<td>0.74642</td>
+</tr>
+<tr>
+<td>VBN</td>
+<td>0.666667</td>
+<td>0.397351</td>
+<td>0.497925</td>
+</tr>
+<tr>
+<td>VBP</td>
+<td>0.657534</td>
+<td>0.657534</td>
+<td>0.657534</td>
+</tr>
+<tr>
+<td>VBZ</td>
+<td>0.701681</td>
+<td>0.668</td>
+<td>0.684426</td>
+</tr>
+<tr>
+<td>WDT</td>
+<td>0.858726</td>
+<td>0.786802</td>
+<td>0.821192</td>
+</tr>
+<tr>
+<td>WP</td>
+<td>0.795181</td>
+<td>0.75</td>
+<td>0.77193</td>
+</tr>
+<tr>
+<td>WP$</td>
+<td>0.871795</td>
+<td>0.62963</td>
+<td>0.731183</td>
+</tr>
+<tr>
+<td>WRB</td>
+<td>1</td>
+<td>0.25</td>
+<td>0.4</td>
+</tr>
+</tbody>
+</table>
+<h3 id="working-on-the-given-case-of-pos-tagging">Working on the given case of POS Tagging</h3>
+<p>We run the viterbi algorithm on the given sentence using the parameters learned through the Hidden Markov Model.</p>
+<pre class="hljs"><code><div>That_/DT former_/JJ Sri_/NN Lanka_/IN skipper_/NNP and_/CC ace_/NNP batsman_/NNP Aravinda_/NNP De_/NNP Silva_/NNP 
+is_/VBZ a_/DT man_/NN of_/JJ few_/JJ words_/NN was_/NN very_/RB much_/JJ evident_/NN on_/IN Wednesday_/NNP 
+when_/WRB the_/DT legendary_/NNP batsman_/NNP ,_/NNP who_/WP has_/VBZ always_/RB let_/VBN his_/PRP$ bat_/JJ 
+talk_/NN ,_/CC struggled_/VBD to_/TO answer_/VB a_/DT barrage_/JJ of_/NN questions_/NNS at_/IN a_/DT 
+function_/NN to_F_/TO promote_/VB
+</div></code></pre>
+<hr>
+<h2 id="question-2b-pos-tagger-modifications-and-evaluation-in-viterbi">Question 2b: POS Tagger (Modifications and Evaluation in Viterbi)</h2>
+<hr>
+<p>We modify our viterbi algorithm to run it on best 3 cases at each step. As a consequence, at each step we have 3 probabilities to consider for each node. While determining the best 3 possibilities from the previous step, we consider the best probabilities among the 3 possibilities for each of the 3 best nodes. We run the modified viterbi algorithm on our sentence given in the assignment and get the following result as an output in <code>taggedresult.txt</code> file.</p>
+<pre class="hljs"><code><div>That_/DT former_/JJ Sri_/NN Lanka_/IN skipper_/NNP and_/CC ace_/NNP batsman_/NNP Aravinda_/NNP De_/NNP Silva_/NNP 
+is_/VBZ a_/DT man_/NN of_/JJ few_/JJ words_/NN was_/NN very_/RB much_/JJ evident_/NN on_/IN Wednesday_/NNP 
+when_/WRB the_/DT legendary_/NNP batsman_/NNP ,_/NNP who_/WP has_/VBZ always_/RB let_/VBN his_/PRP$ bat_/JJ 
+talk_/NN ,_/CC struggled_/VBD to_/TO answer_/VB a_/DT barrage_/JJ of_/NN questions_/NNS at_/IN a_/DT 
+function_/NN to_F_/TO promote_/VB
+</div></code></pre>
+<hr>
+<h2 id="question-2c">Question 2c:</h2>
+<hr>
+<p>The output is the same in both the cases even though we are taking most probable 3 paths. This is because, actually in Viterbi algorithm all the paths are taken into consideration. This is done through the usage of a dynamic programming approach in the algorithm. All states are stored in multidimensional array (dimension depending on the ngram selected) and maximum probability is taken at each step from all previous possible states using the transition and emission matrices. So even if we take most probable 3 paths it won’t make a difference as the best possible path is already considered in the dynamic programming approach of Viterbi algorithm.</p>
+<hr>
+<p>Thanking You!</p>
+<p>Shashwat Mahajan</p>
+
+</body>
+</html>
